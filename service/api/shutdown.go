@@ -1,6 +1,6 @@
 package api
 
-// Close should close everything opened in the lifecycle of the `_router`; for example, background goroutines.
+// Close terminates any resource used by the router
 func (rt *_router) Close() error {
 	return nil
 }
