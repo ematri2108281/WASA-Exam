@@ -1,6 +1,8 @@
 {
-	"name": "teapot",
-	"version": "0.0.0",
+	"name": "wasatext-ui",
+	"version": "1.0.0",
+	"description": "Frontend for WASAText — a WhatsApp-like messaging web app (Sapienza WASA exam project)",
+	"author": "ematri2108281",
 	"scripts": {
 		"dev": "yarn install --immutable --immutable-cache && vite",
 		"build-dev": "yarn install --immutable --immutable-cache && vite build --mode development",
