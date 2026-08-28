@@ -1,8 +1,9 @@
 /*
-Package reqcontext contains the request context. Each request will have its own instance of RequestContext filled by the
-middleware code in the api-context-wrapper.go (parent package).
+Package reqcontext contains the per-request context object.
 
-Each value here should be assumed valid only per request only, with some exceptions like the logger.
+An instance of RequestContext is created for each incoming HTTP request by
+the middleware in api-context-wrapper.go and passed down to every handler.
+Values inside should be considered valid only for the lifetime of that request.
 */
 package reqcontext
 
@@ -11,11 +12,20 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// RequestContext is the context of the request, for request-dependent parameters
+// RequestContext carries request-scoped values for a single HTTP call.
 type RequestContext struct {
-	// ReqUUID is the request unique ID
+	// ReqUUID is a unique identifier for this request, useful for tracing logs.
 	ReqUUID uuid.UUID
 
-	// Logger is a custom field logger for the request
+	// Logger is a structured logger pre-populated with request fields.
 	Logger logrus.FieldLogger
+
+	// UserID is the authenticated user's identifier, extracted from the Bearer
+	// token by the auth middleware. Empty string means unauthenticated.
+	UserID string
+}
+
+// IsAuthenticated reports whether the request carries a valid user identity.
+func (c RequestContext) IsAuthenticated() bool {
+	return c.UserID != ""
 }
