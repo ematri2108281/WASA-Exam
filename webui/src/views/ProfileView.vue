@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <section class="profile centered">
     <div class="profile-card">
        <button class="btn btn-back" @click="goHome">
@@ -129,7 +129,7 @@ export default {
                 await axios.put('/user/username', { name: next });
                 this.username = next;
                 localStorage.setItem('username', this.username);
-                this.newUsername = '';
+                this.newUsername = next;
                 this.errormsg = null;
                 this.showSuccess('Username updated successfully!');
             } catch (error) {
@@ -301,7 +301,7 @@ export default {
   border: 1px solid var(--border);
   color: var(--text);
   padding: .6rem .9rem;
-  border-radius: var(--radius);
+  border-radius: 999px;
   cursor: pointer;
   transition: background .15s ease, transform .06s ease, box-shadow .15s ease;
 }
@@ -365,7 +365,7 @@ export default {
   color: var(--neon-cyan);
   font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 999px;
   transition: all 0.3s ease;
 }
 

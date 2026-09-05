@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="home-container">
    
 
@@ -723,7 +723,7 @@ export default {
   padding: 1rem 2rem;
   background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
   border: none;
-  border-radius: 12px;
+  border-radius: 999px;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 700;

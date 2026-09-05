@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="app-wrapper">
     <!-- Unified Top Bar (only when NOT on login page) -->
     <header v-if="$route.path !== '/login'" class="app-topbar">
@@ -50,13 +50,9 @@
 
   <!-- RIGHT -->
   <div class="actions-right">
-     <!-- Profile (ICONA ORIGINALE TENUTA) -->
-    <RouterLink to="/profile" class="btn-icon" title="Profile">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
+     <!-- Profile: real user avatar -->
+    <RouterLink to="/profile" class="btn-icon btn-icon-avatar" title="Profile">
+      <img :src="userAvatarSrc" alt="Profile" class="topbar-avatar" />
     </RouterLink>
 
 
@@ -95,10 +91,39 @@
 
 <script setup>
 import { RouterLink, RouterView, useRouter } from 'vue-router'
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted, ref, computed } from 'vue'
 import axios from './services/axios.js'
 
 const router = useRouter()
+
+// ── User avatar for the top-bar ─────────────────────────────────────────────
+const storedPhoto    = ref(localStorage.getItem('userPhoto') || '')
+const storedUsername = ref(localStorage.getItem('username') || '')
+
+function buildLetterAvatar(name, size = 32) {
+  try {
+    const letter = (String(name || '').trim().charAt(0) || '?').toUpperCase()
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}' viewBox='0 0 ${size} ${size}'>
+  <rect width='100%' height='100%' rx='${Math.floor(size/2)}' ry='${Math.floor(size/2)}' fill='#e8f0fe'/>
+  <text x='50%' y='53%' dominant-baseline='middle' text-anchor='middle' fill='var(--neon-cyan)' font-family='Segoe UI, Roboto, sans-serif' font-weight='700' font-size='${Math.floor(size*0.5)}'>${letter}</text>
+</svg>`
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg)
+  } catch { return '' }
+}
+
+const userAvatarSrc = computed(() => {
+  const p = storedPhoto.value || ''
+  if (p && (p.startsWith('data:') || p.startsWith('http'))) return p
+  return buildLetterAvatar(storedUsername.value, 32)
+})
+
+// Keep avatar in sync when ProfileView updates localStorage
+function syncFromStorage() {
+  storedPhoto.value    = localStorage.getItem('userPhoto') || ''
+  storedUsername.value = localStorage.getItem('username') || ''
+}
+
+let syncInterval = null
 
 onMounted(async () => {
   try {
@@ -106,6 +131,15 @@ onMounted(async () => {
   } catch (e) {
     console.error('Liveness check failed', e)
   }
+  syncFromStorage()
+  window.addEventListener('storage', syncFromStorage)
+  // Fallback polling so same-tab updates are caught too
+  syncInterval = setInterval(syncFromStorage, 2000)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('storage', syncFromStorage)
+  if (syncInterval) clearInterval(syncInterval)
 })
 
 // Event handlers for HomeView communication
@@ -228,6 +262,31 @@ const logout = () => {
 .btn-icon:hover {
   background: var(--bg-hover);
   color: var(--text-primary);
+}
+
+/* Avatar variant – no extra bg tint, just the image */
+.btn-icon-avatar {
+  padding: 0;
+  background: transparent !important;
+}
+
+.topbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-icon-avatar:hover .topbar-avatar {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.35);
+}
+
+.btn-icon-avatar.router-link-active .topbar-avatar {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(26, 115, 232, 0.4);
 }
 
 .btn-icon.router-link-active {

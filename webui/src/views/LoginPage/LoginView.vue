@@ -283,7 +283,7 @@ export default {
   padding: 0.8rem 1rem;
   background: var(--neon-cyan);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 999px;
   color: #ffffff;
   font-size: 0.95rem;
   font-weight: 600;

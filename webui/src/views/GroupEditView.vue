@@ -598,7 +598,7 @@ export default {
   padding: 0.625rem 1rem;
   background: rgba(26, 115, 232, 0.08);
   border: 1px solid rgba(26, 115, 232, 0.25);
-  border-radius: 10px;
+  border-radius: 999px;
   color: var(--neon-cyan);
   font-weight: 600;
   cursor: pointer;
@@ -797,7 +797,7 @@ export default {
   padding: 0.625rem 1.25rem;
   background: var(--neon-cyan);
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   color: var(--bg-primary);
   font-weight: 700;
   cursor: pointer;
@@ -869,7 +869,7 @@ export default {
   padding: 0;
   background: var(--neon-cyan);
   border: none;
-  border-radius: 10px;
+  border-radius: 50%;
   color: var(--bg-primary);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -992,7 +992,7 @@ export default {
   padding: 0;
   background: rgba(255, 0, 100, 0.15);
   border: 1px solid rgba(255, 0, 100, 0.3);
-  border-radius: 8px;
+  border-radius: 50%;
   color: #ff0064;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1119,7 +1119,7 @@ export default {
   padding: 0.5rem 1rem;
   background: rgba(26, 115, 232, 0.08);
   border: 1px solid rgba(138, 43, 226, 0.4);
-  border-radius: 8px;
+  border-radius: 999px;
   color: var(--neon-purple);
   font-weight: 600;
   font-size: 0.875rem;
@@ -1180,7 +1180,7 @@ export default {
 
 .btn-neon {
   padding: 0.75rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;

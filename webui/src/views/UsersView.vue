@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <section class="users-view">
     <header class="users-header">
       <div>
@@ -133,7 +133,7 @@ export default {
   background: var(--bg-alt);
   color: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: var(--radius);
+  border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
 }

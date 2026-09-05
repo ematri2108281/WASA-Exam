@@ -792,7 +792,7 @@ export default {
   padding: 0.5rem 1rem;
   background: rgba(26, 115, 232, 0.12);
   border: 1px solid rgba(26, 115, 232, 0.30);
-  border-radius: 8px;
+  border-radius: 999px;
   color: var(--neon-cyan);
   font-weight: 600;
   font-size: 0.875rem;
@@ -933,7 +933,7 @@ export default {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 2rem;
-  border-radius: 12px;
+  border-radius: 999px;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;

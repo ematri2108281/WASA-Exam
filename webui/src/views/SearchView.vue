@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <section class="search">
     <div class="search-form">
       <input v-model="qUser" class="input" type="text" placeholder="Search user (username)" @input="doSearch" />
@@ -128,7 +128,7 @@ export default {
 .search-header { border-bottom: 1px solid var(--border); padding-bottom: .5rem; }
 .search-form { display: flex; gap: .5rem; align-items: center; }
 .input { flex: 1; padding: .6rem .7rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); }
-.btn { padding: .55rem .9rem; border-radius: var(--radius); border: none; background: var(--accent); color: #000; font-weight: 700; }
+.btn { padding: .55rem .9rem; border-radius: 999px; border: none; background: var(--accent); color: #000; font-weight: 700; }
 .results { display: block; width: 100%; }
 .col { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: .75rem; width: 100%; }
 .col h3 { margin: 0 0 .5rem 0; text-align: left; }
@@ -158,34 +158,35 @@ export default {
 }
 .label { color: var(--text); flex: 1; text-align: left; font-weight: 700; font-size: 1.05rem; }
 .muted { color: var(--text-dim); text-align: left; padding: .5rem; }
-.btn { padding: .55rem .9rem; border-radius: var(--radius); border: none; background: var(--accent); color: #000; font-weight: 700; white-space: nowrap; }
+.btn { padding: .55rem .9rem; border-radius: 999px; border: none; background: var(--accent); color: #000; font-weight: 700; white-space: nowrap; }
 
 .btn.start {
-  min-width: 120px;
+  min-width: 140px;
   width: auto;
-  padding: .65rem 1.4rem;
+  padding: .65rem 1.8rem;
   display: inline-flex;
   justify-content: center;
-  background: var(--neon-cyan); 
-  color: #ffffff; 
-  border: 2px solid var(--neon-cyan);
-  box-shadow: 0 0 12px rgba(26, 115, 232, 0.3);
+  border-radius: 999px;
+  background: #1a73e8;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 18px rgba(26, 115, 232, 0.45);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .btn.start:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 0 20px rgba(26, 115, 232, 0.5);
-  background: var(--neon-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26, 115, 232, 0.65);
+  background: #1558c0;
 }
 
 .btn.start:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
-  background: rgba(26, 115, 232, 0.3);
+  background: rgba(26, 115, 232, 0.35);
   box-shadow: none;
 }
 
@@ -244,16 +245,13 @@ export default {
   width: auto;
 }
 .bar-inner {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   padding: 0.4rem 0.8rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: auto;
-  min-width: 140px;
-  max-width: 260px;
 }
 </style>

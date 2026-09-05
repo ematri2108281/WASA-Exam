@@ -1957,7 +1957,7 @@ async unreact(messageId, type) {
   padding: 0.4rem 0.8rem; 
   background: rgba(26, 115, 232, 0.08);
   border: 2px solid rgba(26, 115, 232, 0.25);
-  border-radius: 10px;
+  border-radius: 999px;
   color: var(--neon-cyan);
   text-decoration: none;
   font-weight: 600;
@@ -2044,7 +2044,7 @@ async unreact(messageId, type) {
 .btn-neon {
   padding: 0.4rem 0.8rem; 
   font-size: 0.875rem;
-  border-radius: 8px;
+  border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
