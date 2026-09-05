@@ -1,0 +1,10 @@
+FROM golang:1.22 AS builder
+WORKDIR /src/
+COPY . .
+RUN go build -o /app/webapi ./cmd/webapi
+
+FROM debian:bookworm
+EXPOSE 3000 4000
+WORKDIR /app/
+COPY --from=builder /app/webapi ./
+CMD ["/bin/sh", "-c", "rm -f /tmp/decaf.db && /app/webapi"]
