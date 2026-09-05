@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/google/uuid"
 	"github.com/ematri2108281/wasatext/service/components/schema"
+	"github.com/google/uuid"
 )
 
 // CreateUser inserts a new user into the database

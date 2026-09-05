@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gofrs/uuid"
 	"github.com/ematri2108281/wasatext/service/components/schema"
+	"github.com/gofrs/uuid"
 )
 
 // SendMessage inserts a new message in a conversation

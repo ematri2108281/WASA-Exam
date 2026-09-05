@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/julienschmidt/httprouter"
 	"github.com/ematri2108281/wasatext/service/api/reqcontext"
 	"github.com/ematri2108281/wasatext/service/components/schema"
+	"github.com/julienschmidt/httprouter"
 )
 
 // getMyConversations returns all conversations for the authenticated user

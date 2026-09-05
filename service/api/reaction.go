@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/julienschmidt/httprouter"
 	"github.com/ematri2108281/wasatext/service/api/reqcontext"
 	"github.com/ematri2108281/wasatext/service/components/requests"
+	"github.com/julienschmidt/httprouter"
 )
 
 // commentMessage adds a reaction to a message

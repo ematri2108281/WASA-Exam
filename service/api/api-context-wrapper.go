@@ -3,10 +3,10 @@ package api
 import (
 	"net/http"
 
+	"github.com/ematri2108281/wasatext/service/api/reqcontext"
 	"github.com/gofrs/uuid"
 	"github.com/julienschmidt/httprouter"
 	"github.com/sirupsen/logrus"
-	"github.com/ematri2108281/wasatext/service/api/reqcontext"
 )
 
 // httpRouterHandler is the signature for functions that also accept a reqcontext.RequestContext

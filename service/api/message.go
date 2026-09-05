@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/julienschmidt/httprouter"
 	"github.com/ematri2108281/wasatext/service/api/reqcontext"
 	"github.com/ematri2108281/wasatext/service/components/requests"
 	"github.com/ematri2108281/wasatext/service/components/schema"
+	"github.com/julienschmidt/httprouter"
 )
 
 // sendMessage sends a new message to a conversation

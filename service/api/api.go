@@ -23,9 +23,9 @@ import (
 	"errors"
 	"net/http"
 
+	"github.com/ematri2108281/wasatext/service/database"
 	"github.com/julienschmidt/httprouter"
 	"github.com/sirupsen/logrus"
-	"github.com/ematri2108281/wasatext/service/database"
 )
 
 // Config is used to provide dependencies and configuration to the New function.

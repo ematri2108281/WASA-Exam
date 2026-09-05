@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gofrs/uuid"
 	"github.com/ematri2108281/wasatext/service/components/schema"
+	"github.com/gofrs/uuid"
 )
 
 // GetMyConversations returns a summary list of conversations for a user

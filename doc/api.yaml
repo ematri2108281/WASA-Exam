@@ -705,6 +705,8 @@ paths:
                     type: string
                     description: User UUID
                     pattern: "^[0-9a-fA-F\\-]+$"
+                    minLength: 36
+                    maxLength: 36
                 groupPhoto:
                   type: string
                   description: Optional group photo
@@ -954,6 +956,7 @@ components:
           # nullable removed, use empty string or omission if needed
           minLength: 0
           maxLength: 5242880
+          pattern: "^[A-Za-z0-9+/]*={0,2}$"
 
     Reaction:
       type: object
